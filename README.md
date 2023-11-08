@@ -12,6 +12,8 @@ Allow you play GIF using Rust and WebAssembly.
 
 The cargo command will build only the WASM files. If you want to use add controls to the gif. See the [Advance Player](https://rstursoc.github.io/gif_player_wasm/examples/controls/) example. The **gif_player.js** implement the controls.
 
+Move the mouse over the GIF to display the controllers.
+
 ## Getting Started
 
 ### For NPM Project
@@ -38,6 +40,7 @@ Output to **gif_player_wasm_bg.wasm** and **gif_player_wasm.js** on the **exampl
 - [x] Add GIF parsing
 - [x] Add player controls
 - [x] Add GIF and frame download
+- [x] Compatible with mobile pages
 - [ ] Optimize memory usage
 - [ ] Add play speed control
 
