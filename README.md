@@ -5,7 +5,9 @@ Allow you play GIF using Rust and WebAssembly.
 ## Demo
 
 [Simple Usage](https://rstursoc.github.io/gif_player_wasm/examples/simple/)
+
 [Advance Player](https://rstursoc.github.io/gif_player_wasm/examples/controls/)
+
 [Performance Test](https://rstursoc.github.io/gif_player_wasm/examples/controls/performance_test.html)
 
 ## About The Player
