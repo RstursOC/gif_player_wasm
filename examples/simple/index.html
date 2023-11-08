@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examples</title>
+</head>
+
+<body>
+    <div>
+        <canvas id="canvas" width="351" height="382"></canvas>
+        <div>
+            <button onclick="stop_play()">Stop Play</button>
+        </div>
+    </div>
+    <script>
+        const controller = new AbortController();
+        const signal = controller.signal;
+        function stop_play() {
+            controller.abort();
+        }
+    </script>
+    <script type="module" src="../gif_player_wasm.js"></script>
+    <script type="module">
+        import * as wasm from "../gif_player_wasm.js";
+
+        fetch("../gif_player_wasm_bg.wasm")
+            .then((response) => {
+                return response.arrayBuffer();
+            })
+            .then((wasmBuffer) => {
+                wasm.initSync(wasmBuffer);
+
+                fetch("../test.gif").then((res) => {
+                    if (res.ok) {
+                        const canvas = document.getElementById("canvas");
+                        const ctx = canvas.getContext("2d");
+                        res.arrayBuffer().then((res) => {
+                            const arr = new Uint8Array(res);
+                            console.log(wasm.load_gif(arr, ctx, 351, 382, signal, 0));
+                        });
+                    }
+                });
+            });
+    </script>
+</body>
+
+</html>

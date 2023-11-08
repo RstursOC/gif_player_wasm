@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Player</title>
+</head>
+<body>
+    <!-- This image may has CORS issue when using fetch function -->
+    <img id="test" src="https://sample-videos.com/gif/2.gif" alt="">
+    <img id="test-2" src="../test.gif" alt="">
+    <img id="test-3" style="width: 200px; height: 200px;" src="../test.gif" alt="">
+</body>
+<script type="module" src="../gif_player.js"></script>
+<script type="module">
+    import { GIFPlayer } from "../gif_player.js"
+    const gif_player = await new GIFPlayer();
+    gif_player.allowDownload(true);
+
+    console.log(gif_player);
+
+    let img = document.getElementById("test");
+    gif_player.initWithElement(img);
+
+    let img2 = document.getElementById("test-2");
+    gif_player.initWithElement(img2);
+
+    let img3 = document.getElementById("test-3");
+    gif_player.initWithElement(img3);
+</script>
+</html>

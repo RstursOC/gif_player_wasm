@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Player Performance</title>
+</head>
+<body>
+    <!-- This image may has CORS issue when using fetch function -->
+    <img class="test" style="width: 200px; height: 200px;" src="../test.gif" alt="">
+    <img class="test" style="width: 200px; height: 200px;" src="../test.gif" alt="">
+    <img class="test" style="width: 200px; height: 200px;" src="../test.gif" alt="">
+    <img class="test" style="width: 200px; height: 200px;" src="../test.gif" alt="">
+    <img class="test" style="width: 200px; height: 200px;" src="../test.gif" alt="">
+    <img class="test" style="width: 200px; height: 200px;" src="../test.gif" alt="">
+    <img class="test" style="width: 200px; height: 200px;" src="../test.gif" alt="">
+    <img class="test" style="width: 200px; height: 200px;" src="../test.gif" alt="">
+    <img class="test" style="width: 200px; height: 200px;" src="../test.gif" alt="">
+    <img class="test" style="width: 200px; height: 200px;" src="../test.gif" alt="">
+    <img class="test" style="width: 200px; height: 200px;" src="../test.gif" alt="">
+</body>
+<script type="module" src="../gif_player.js"></script>
+<script type="module">
+    import { GIFPlayer } from "../gif_player.js"
+    const gif_player = await new GIFPlayer();
+    gif_player.allowDownload(true);
+
+    console.log(gif_player);
+
+    let imgs = document.getElementsByClassName("test");
+    for (let index = 0; index < imgs.length; index++) {
+        const element = imgs[index];
+        gif_player.initWithElement(element);
+    }
+</script>
+</html>
